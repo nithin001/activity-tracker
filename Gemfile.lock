@@ -202,6 +202,7 @@ DEPENDENCIES
   pg
   puma (~> 3.11)
   rails (~> 5.2.0)
+  rake (~> 12.3.1)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
@@ -213,7 +214,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.2.6p396
+   ruby 2.5.1p57
 
 BUNDLED WITH
    1.16.2
