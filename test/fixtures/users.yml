@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  emailid: test@test.com
+  name: Dan Brown
+
+two:
+  id: 2
+  emailid: testone@test.com
+  name: JK Rowling
