@@ -2,3 +2,9 @@
 <p>
   The time is now: <%= Time.now %>
 </p>
+<%= google_sign_in(url: WelcomeController::GOOGLE_SIGN_ID) do %>
+  # You can replace this with whatever design you please for the button.
+  # You should follow Google's brand guidelines for Google Sign-In, though:
+  # https://developers.google.com/identity/branding-guidelines
+  <%= button_tag("Signin with Google") %>
+<% end %>
