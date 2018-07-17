@@ -3,8 +3,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate!
 
   def create
-    user = authenticate_via_google
-    if user
+    if user = authenticate_via_google
       session[:user_id] = user
       redirect_to "/dashboard"
     else
