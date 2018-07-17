@@ -63,3 +63,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "google_sign_in", "~> 0.1.4"
+
+gem "sidekiq", "~> 5.1"

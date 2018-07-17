@@ -16,4 +16,19 @@ class UserTest < ActiveSupport::TestCase
     new_user = User.new(emailid: "archer@new.com")
     refute new_user.valid?
   end
+
+
+  test "should return userid if present in db" do
+    user = User.getUserId("test@test.com","Clark Kent")
+    assert_equal user.userid, "52750b30ffbc7de3b362"
+    assert_equal user.new_user, false
+  end
+
+  test "should generate return userid if not present in db" do
+    SecureRandom.stub :hex, "123456" do
+      user = User.getUserId("someone_new@test.com","SuperMan")
+      assert_equal user.userid, "123456"
+      assert_equal user.new_user, true
+    end
+  end
 end
