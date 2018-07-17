@@ -7,14 +7,20 @@ class SessionsController < ApplicationController
       session[:user_id] = user
       redirect_to "/dashboard"
     else
-      redirect_to new_session_url, alert: "authentication_failed"
+      redirect_to "/", alert: "authentication_failed"
     end
   end
 
   private
   def authenticate_via_google
     if params[:google_id_token].present?
-      GoogleSignIn::Identity.new(params[:google_id_token]).user_id
+      begin
+        identity = GoogleSignIn::Identity.new(params[:google_id_token])
+        user = User.getUserId(identity.email_address, identity.name)
+        user.userid
+      rescue ArgumentError => error
+        return false
+      end
     end
   end
 end
